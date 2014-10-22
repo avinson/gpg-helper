@@ -31,7 +31,7 @@ create_keyring()
 {
   KEYRING=$(mktemp /tmp/keyring.XXXXXXXXXX) || { echo "Failed to create temp file"; exit 1; }
   
-  OUTPUT=`find $BASEDIR -maxdepth 1 -name '*.key' -o -name '*.asc' -o -name '*.txt' \
+  OUTPUT=`find $BASEDIR -maxdepth 1 -name '*.key' -o -name '*.asc' -o -name '*.txt' -o -name '*.gpg' \
     | xargs gpg --no-default-keyring --keyring $KEYRING --import 2>&1 | egrep 'imported$'`
 
   KEYS=`gpg --no-default-keyring --keyring $KEYRING --list-keys | perl -n -e'/pub   \w+\/(\w+)/ && print "$1\n"'`

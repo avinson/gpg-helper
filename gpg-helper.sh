@@ -57,7 +57,7 @@ encrypt_for_all()
 import_and_trust()
 {
   # import keys to user's personal keychain
-  find $BASEDIR -maxdepth 1 -name '*.key' -o -name '*.asc' -o -name '*.txt' \
+  find $BASEDIR -maxdepth 3 -name '*.key' -o -name '*.asc' -o -name '*.txt' \
     | xargs gpg --import 2>&1 | egrep 'imported$'
     
   echo "Trusting keys..."

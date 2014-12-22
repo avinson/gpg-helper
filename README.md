@@ -8,7 +8,7 @@ pass supports encryption for multiple recipients via placing multiple key IDs in
 
 ## Prerequisites
 
-The following docs assume that you have a ~/gpgkeys directory with several public gpg keys for people/team members with which you would like to share your pass database with. These keys should end in .asc, .key or .txt extensions. You should also have a recent version of pass installed (1.6 or higher)
+The following docs assume that you have `gpg` installed and a ~/gpgkeys directory with several public gpg keys for people/team members with which you would like to share your pass database with. These keys should end in .asc, .key or .txt extensions. You should also have a recent version of pass installed (1.6 or higher)
 
 ## Common Tasks
 

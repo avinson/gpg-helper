@@ -27,6 +27,16 @@ KEYRING=
 KEYS=
 FPRS=
 
+check_for_gpg()
+{
+  if command -v gpg > /dev/null 2>&1; then
+    :
+  else
+    echo "gpg not found! Please install gpg and make sure it is in your PATH!"
+    exit 1
+  fi
+}
+
 create_keyring()
 {
   KEYRING=$(mktemp /tmp/keyring.XXXXXXXXXX) || { echo "Failed to create temp file"; exit 1; }
@@ -109,6 +119,9 @@ do
       ;;
   esac
 done
+
+# check to see if gpg exists
+check_for_gpg
 
 # create the temporary keyring and import keys
 create_keyring
